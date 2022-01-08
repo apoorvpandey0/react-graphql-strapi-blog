@@ -1,9 +1,9 @@
 # React GraphQL Strapi Blog app
 
-###Frontend
+### Frontend
 ![Screenshot 2](./assets/ss2.png)
 
-###Backend
+### Backend
 ![Screenshot 2](./assets/ss.png)
 
 ### Folder structure of final project
@@ -26,7 +26,7 @@ project root
 
 # How to start the project:
 
-##Set up backend
+## Set up backend
 
 ### `npm create-strapi-app backend`
 
