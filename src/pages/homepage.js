@@ -1,15 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import useFetch from '../hooks/useFetch'
+// import useFetch from '../hooks/useFetch'
+import {useQuery,gql} from "@apollo/client";
+
+
+const GET_BLOGS = gql`
+query GetBlogs{
+    blogPosts{
+      data{
+        id,
+        attributes{
+                  title,
+          excerpt,
+          content,
+          publishedAt,
+                 image{
+                  data{
+                    id,
+                    attributes{
+                      url
+                    }
+                  }
+               }
+        }
+      }
+    }
+  }
+`;
+
+
 
 export default function Homepage() {
-    const { data, error, loading } = useFetch('http://localhost:1337/api/blog-posts/?populate=*')
+    // REST API
+    // const { data, error, loading } = useFetch('http://localhost:1337/api/blog-posts/?populate=*')
+
+    // GraphQL API
+    const {loading,error,data} = useQuery(GET_BLOGS);
+    console.log(data);
 
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error...</div>
+    
     return (
         <div>
-            {data.map(post=>(
+            {data.blogPosts.data.map(post=>(
                 <div key={post.id} className='blog-card'> 
                     <h1 className='rating'>{post.id}</h1>
                     <h1>{post.attributes.title} </h1>
