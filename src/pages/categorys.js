@@ -58,7 +58,7 @@ export default function Categorys() {
                     <h1 className='rating'>{post.id}</h1>
                     <h1>{post.attributes.title} </h1>
                     <h6>{post.attributes.createdAt}</h6>
-                    <img  src={"http://localhost:1337"+post.attributes.image.data.attributes.url} alt="hi" />
+                    <img width="100%" src={"http://localhost:1337"+post.attributes.image.data.attributes.url} alt="hi" />
                     <p className = "categories">Categories: {post.attributes.categories.data.map(c=>(
                         <span>
                             <Link to={`/category/${c.id}`}>{c.attributes.title}</Link>

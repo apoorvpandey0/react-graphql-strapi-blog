@@ -50,7 +50,7 @@ export default function Homepage() {
                     <h1>{post.attributes.title} </h1>
                     <h6>{post.attributes.createdAt}</h6>
                     <img width="auto" height="400" src={"http://localhost:1337"+post.attributes.image.data.attributes.url} alt="hi" />
-                    <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
+                    <ReactMarkdown>{post.attributes.content.substring(0,200) +" ..."}</ReactMarkdown>
                     <Link to={`/details/${post.id}`}>Read more</Link>
                 </div>
             ))}
