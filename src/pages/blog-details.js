@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { useQuery,gql } from '@apollo/client';
+import ReactMarkdown from 'react-markdown'
 // import useFetch from '../hooks/useFetch';
 
 const GET_BLOG_POST = gql`
@@ -49,7 +50,7 @@ export default function BlogDetails() {
                     <h1>{post.attributes.title} </h1>
                     <h6>{post.attributes.createdAt}</h6>
                     <img width="auto" height="400" src={"http://localhost:1337"+post.attributes.image.data.attributes.url} alt="hi" />
-                    <p>{post.attributes.content} ...</p>
+                    <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
                 </div>
         </div>
     )

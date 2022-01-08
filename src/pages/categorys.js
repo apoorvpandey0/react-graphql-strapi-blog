@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Link, useParams } from 'react-router-dom';
 import { useQuery,gql } from '@apollo/client';
+import ReactMarkdown from 'react-markdown'
 
 const GETCATEGORY_POSTS = gql`
 query GetCategory($id:ID!){
@@ -63,7 +64,7 @@ export default function Categorys() {
                             <Link to={`/category/${c.id}`}>{c.attributes.title}</Link>
                         </span>
                     ))}</p> 
-                    <p>{post.attributes.content.substring(0,200)} ...</p>
+                    <ReactMarkdown>{post.attributes.content.substring(0,200)}</ReactMarkdown>
                     <Link to={`/details/${post.id}`}>Read more</Link>
                 </div>
             ))}
